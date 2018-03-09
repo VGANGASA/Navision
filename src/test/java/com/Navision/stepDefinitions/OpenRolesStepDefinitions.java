@@ -13,16 +13,12 @@ import cucumber.api.java.en.When;
 
 public class OpenRolesStepDefinitions extends ReUsableFunctions {
 
+	OpenRolesPage openRolepage = new OpenRolesPage();
+	NavisionStepDefinitions ns = new NavisionStepDefinitions();
 	
-	@Given("^user navigate to the url$")
-	public void user_navigate_to_the_url() throws Throwable {
-	   
-	}
+	
 
-	@Given("^verify the homepage title$")
-	public void verify_the_homepage_title() throws Throwable {
-	    
-	}
+	
 
 	@Given("^user able click on the BUs$")
 	public void user_able_click_on_the_BUs() throws Throwable {
@@ -50,30 +46,30 @@ public class OpenRolesStepDefinitions extends ReUsableFunctions {
 	}
 
 	@When("^user should able to click open roles$")
-	public void user_should_able_to_click_open_roles() throws Throwable {
-		OpenRolesPage openRolepage = new OpenRolesPage();
+	public void user_should_able_to_click_open_roles() throws Throwable {		
 		Click(openRolepage.getOpenRoles());
-		Click(openRolepage.getHere());
+		
 	}
 
 	@Then("^user should see Open Roles$")
 	public void user_should_see_Open_Roles() throws Throwable {
-	    
+		System.out.println("Open roles have seen");
+		
 	}
 
 	@Then("^user able to click on here$")
 	public void user_able_to_click_on_here() throws Throwable {
-	    
+		Click(openRolepage.getHere());
 	}
 
 	@Then("^user should able to see Open Roles in new window$")
 	public void user_should_able_to_see_Open_Roles_in_new_window() throws Throwable {
-	 
+		windowSwitch();
 	}
 
 	@Then("^user shoild able to find the suitable role$")
 	public void user_shoild_able_to_find_the_suitable_role() throws Throwable {
-	 
+		Assert.assertEquals(isDisplayed(openRolepage.getWelcomeMessage()), true);
 	}
 
 	

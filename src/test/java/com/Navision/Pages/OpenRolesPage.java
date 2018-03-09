@@ -18,6 +18,9 @@ public class OpenRolesPage {
 	@FindBy (xpath = "//a[contains(text(),'here')]")
 	WebElement here;
 	
+	@FindBy (xpath = "//*[@id=\"layoutsTable\"]/tbody/tr/td[1]/div/div/span[2]")
+	WebElement welcomeMessage;
+	
 	public WebElement getBusinesUnits() {
 		return businessUnit;		
 	}
@@ -32,5 +35,9 @@ public class OpenRolesPage {
 	
 	public WebElement getHere() {
 		return here;
+	}
+	
+	public WebElement getWelcomeMessage() {
+		return welcomeMessage;
 	}
 }

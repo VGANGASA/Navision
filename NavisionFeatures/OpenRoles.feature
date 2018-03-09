@@ -16,23 +16,21 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-
-
 @DeliveryModule
 Feature: Look for the open roles in the delivery module
 
-  @OpenRole
+  Background:
+  Given user navigate to the URL https://talent.capgemini.com/uk
+
+  @OpenRoleVijay
   Scenario: Title of your scenario
-    Given user navigate to the url
-    And verify the homepage title
-    And user able click on the BUs
+   And user should see the home page
+     And user able click on the BUs
     And user able click on the SogetiUK
     When user clicked on the Sogeti UK should see BUSINESS UNITS
     And user should able to click delivery
-    And  user should able to click open roles
+    And user should able to click open roles
     Then user should see Open Roles
     And user able to click on here
     Then user should able to see Open Roles in new window
     Then user should able to find the suitable role
-    
-   

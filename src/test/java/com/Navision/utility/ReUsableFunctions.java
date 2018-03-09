@@ -47,8 +47,8 @@ public class ReUsableFunctions extends OpenBrowser {
 	public boolean isDisplayed(WebElement element) {
 		boolean isDisplayed = false;
 		try {
-			waitForPageLoad();
-			scrollIntoView(element);
+//			waitForPageLoad();
+//			scrollIntoView(element);
 			isDisplayed = element.isDisplayed();
 		} catch (Exception e) {
 			fail(errorMessage + element);
