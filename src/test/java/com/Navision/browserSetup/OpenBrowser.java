@@ -14,6 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Parameters;
 
 import com.Navision.dataProvider.ConfigFileReader;
 import com.Navision.utility.Screenshots;
@@ -26,9 +27,9 @@ public class OpenBrowser {
 	
 	Screenshots ss = new Screenshots(driver);
 	protected static WebDriver driver;
-	WebDriverWait wait;
+	
 	public String errorMessage = "no such element exception: ";
-	Alert alert;
+	
 	public ExtentReports report;
 	public ExtentTest logger;
 	
@@ -69,7 +70,7 @@ public class OpenBrowser {
 	*/
     
    
-	
+
 	public static void setInstance(String browserName) {
 
 		browserName = (browserName != null) ? browserName : "firefox";
@@ -109,70 +110,7 @@ public class OpenBrowser {
 		return driver;
 	}
 
-	
-	public String getPageTitle() {
-		String Title = driver.getTitle();
-		return Title;
-	}
-	
-	public String getCurrenturl() {
-		String Title = driver.getCurrentUrl();
-		return Title;
-	}
-	
-	public void alertIsPresent(){
-		if(isAlertPresent()) {
-			alert = driver.switchTo().alert();
-			alert.accept();
-		}else if(!isAlertPresent()) {
-			System.out.println("Alert not present");
-		}	
-	}
-	
-	protected boolean isAlertPresent(){
-        boolean foundAlert ;
-        wait = new WebDriverWait(driver, 30 /*timeout in seconds*/);
-        try {
-            wait.until(ExpectedConditions.alertIsPresent());
-            foundAlert = true;
-            System.out.println("Alert found :: " + foundAlert);
-        } catch (TimeoutException e) {
-            foundAlert = false;
-        }
-        return foundAlert;
-    }
-	
-	public void elementToBeClickable(WebElement locator) {
-    	try{
-    	wait = new WebDriverWait(driver,60);
-		wait.until(ExpectedConditions.elementToBeClickable(locator));
-    	}catch(Exception e){fail(errorMessage);}
-    }
-	
-    public void WaitforPage_To_Load(){
-    	
-   	 wait = new WebDriverWait(driver, 30);
-   	    wait.until(new ExpectedCondition<Boolean>() {
-   	        public Boolean apply(WebDriver driver) {
-   	            return ((JavascriptExecutor) driver).executeScript(
-   	                "return document.readyState"
-   	            ).equals("complete");
-   	        }
-   	    });
-   }
-   
-    public boolean isDisplayed(WebElement element) {
-	      boolean isDisplayed = false ;
-	        try {
-	        	boolean ElementisDisplayed = element.isDisplayed();	
-	        	isDisplayed = ElementisDisplayed;
-	        } catch (Exception e) {
-	            fail(errorMessage + element);
-	        }
-	        return isDisplayed;
-	    }
 
-    
     
 
 }

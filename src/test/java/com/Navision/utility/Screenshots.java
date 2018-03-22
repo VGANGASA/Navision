@@ -1,18 +1,7 @@
 package com.Navision.utility;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.ITestResult;
-//import org.apache.commons.io.FileUtils;
-import com.Navision.browserSetup.OpenBrowser;
 
 
 
@@ -53,19 +42,19 @@ public class Screenshots  {
 //	FileUtils.copyFile(scrFile, new File(filePath));
 //	}
 	
-	public String captureScreenshot(WebDriver driver, String screenshotName){
-		
-		try {
-			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);    
-			String filedest = "../Navision/target/ScreenShots" + screenshotName +".png" ;
-			File destination = new File(filedest);
-			FileUtils.copyFile(scrFile, destination);
-			return filedest;
-		} catch (IOException e) {
-			return e.getMessage();
-			 
-		}
-		
-	}
+//	public String captureScreenshot(WebDriver driver, String screenshotName){
+//		
+//		try {
+//			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);    
+//			String filedest = "../Navision/target/ScreenShots" + screenshotName +".png" ;
+//			File destination = new File(filedest);
+//			FileUtils.copyFile(scrFile, destination);
+//			return filedest;
+//		} catch (IOException e) {
+//			return e.getMessage();
+//			 
+//		}
+//		
+//	}
 	
 }

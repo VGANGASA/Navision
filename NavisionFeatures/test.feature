@@ -16,21 +16,19 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-@DeliveryModule
-Feature: Look for the open roles in the delivery module
 
-  Background: 
+@tagDataTables
+Feature: Testing of the title
+ 
+ Background: 
     Given user navigate to the URL https://talent.capgemini.com/uk
+ 
+  @tagOutline
+  Scenario Outline: Enter user name and password
+   
+    And user should enter the  <UserName> and <Passowrd>
 
-  @OpenRoleVijay
-  Scenario: Title of your scenario
-    And user should see the home page
-    And user click on the BUs
-    And user click on the Sogeti UK
-    When user clicked on the Sogeti UK should see BUSINESS UNITS
-    And user should able to click delivery
-    And user should able to click open roles
-    Then user should see Open Roles
-    And user able to click on here
-    Then user should able to see Open Roles in new window
-    Then user should able to find the suitable role
+    Examples: 
+      | UserName | Passowrd |
+      | Test     | test123  |
+      | tester   | helo123  |

@@ -16,8 +16,6 @@
 #""
 ## (Comments)
 #Sample Feature Definition Template
-
-
 @Navision
 Feature: Create a script to enter 5 rows into Navision from a datasheet, using Java, JS or Python
 
@@ -27,6 +25,9 @@ Feature: Create a script to enter 5 rows into Navision from a datasheet, using J
   @vijay
   Scenario: Enter 5 rows into Navision from a datasheet
     And user should see the home page
-    When user should navigate to the Navision page
+    And user click on the BUs
+    And user click on the Sogeti UK
+    When user is on Navision page then click on Navision 
     And user should see the Navision page
     Then user should able to enter the data into rows
+
