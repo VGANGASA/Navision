@@ -116,6 +116,7 @@ public class NavisionStepDefinitions extends OpenBrowser {
 	
 	@After(order = 1)
 	public void afterScenario(Scenario scenario) {
+		
 		if (scenario.isFailed()) {
 			String screenshotName = scenario.getName().replaceAll(" ", "_");
 			try {
